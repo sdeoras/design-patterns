@@ -1,1 +1,4 @@
 .idea
+configrpc_client/configrpc_client
+configrpc_server/configrpc_server
+main

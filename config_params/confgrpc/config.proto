@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+// confgrpc defines a simple interface to sending byte[] over
+//grpc
+package confgrpc;
+
+service Set {
+    rpc GlobalParams(stream Data) returns (Ack);
+    rpc LocalParams(stream Data) returns (Ack);
+}
+
+message Data {
+    bytes Buffer = 1;
+    int32 Index = 2;
+}
+
+message Ack {
+    int64 n = 1;
+}
+
