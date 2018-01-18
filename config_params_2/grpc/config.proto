@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package config;
+
+message Global {
+    string a = 1;
+    string b = 2;
+    bool c = 3;
+    repeated Local local = 4;
+}
+
+message Local {
+    string d = 1;
+    int32 e = 2;
+}
+
+message Ack {
+    int64 n = 1;
+}
+
+message Empty{}
+
+service Messenger {
+    rpc Get(Empty) returns (Global) {}
+    rpc Set(Global) returns (Ack) {}
+}
